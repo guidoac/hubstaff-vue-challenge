@@ -1,16 +1,18 @@
 <template>
   <div class="col">
-    <p class="text-muted h6">
-      {{ `1 of ${membersCount} counts towards your pricing plan` }}
+    <div class="row mb-3">
+      <p class="text-muted h6">
+        {{ `1 of ${membersCount} counts towards your pricing plan` }}
 
-      <b-button
-        v-b-tooltip.hover
-        title="Viewers don't count towards yout Team of 10 (Premium) plan"
-        class="rounded-circle text-white info-tooltip-buttom border-0 ml-1"
-      >
-        i
-      </b-button>
-    </p>
+        <b-button
+          v-b-tooltip.hover
+          title="Viewers don't count towards yout Team of 10 (Premium) plan"
+          class="rounded-circle text-white info-tooltip-buttom border-0 ml-1"
+        >
+          i
+        </b-button>
+      </p>
+    </div>
 
     <div class="row">
       <BaseSelect
