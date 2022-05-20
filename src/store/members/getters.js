@@ -1,8 +1,13 @@
 export default {
-  getMembers: state => {
+  members: state => {
     return state.members
   },
-  getMembersCount: state => {
+
+  membersCount: state => {
     return state.count
+  },
+
+  roles: state => {
+    return state.roles
   }
 }
