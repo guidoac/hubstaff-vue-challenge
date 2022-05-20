@@ -1,12 +1,22 @@
 <template>
-  <div class="home">
+  <div class="home p-4">
     <!-- Your implementation should start here -->
-    <h4>[Members Page]</h4>
+    <h2 class="mb-4">
+      Members
+    </h2>
+
+    <MembersTable />
   </div>
 </template>
 
 <script>
+import MembersTable from '@/components/Members/MembersTable'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+
+  components: {
+    MembersTable
+  }
 }
 </script>
