@@ -5,18 +5,41 @@
       Members
     </h2>
 
-    <MembersTable />
+    <b-tabs
+      no-nav-style
+      content-class="mt-3"
+      active-nav-item-class="bg-transparent border-primary pb-1"
+    >
+      <b-tab :title="`MEMBERS (${membersCount})`">
+        <MembersTab />
+      </b-tab>
+
+      <b-tab
+        title="INVITES"
+        disabled
+      >
+        <!-- <InvitesTab /> goes here -->
+      </b-tab>
+    </b-tabs>
   </div>
 </template>
 
 <script>
-import MembersTable from '@/components/Members/MembersTable'
+import { mapGetters } from 'vuex'
+
+import MembersTab from '@/components/Members/MembersTab'
 
 export default {
   name: 'Home',
 
+  computed: {
+    ...mapGetters('members', [
+      'membersCount'
+    ])
+  },
+
   components: {
-    MembersTable
+    MembersTab
   }
 }
 </script>
