@@ -1,5 +1,5 @@
 <template>
-  <div class="home p-4">
+  <div class="home">
     <!-- Your implementation should start here -->
     <h2 class="mb-4">
       Members
