@@ -5,9 +5,5 @@ export default {
 
   membersCount: state => {
     return state.count
-  },
-
-  roles: state => {
-    return state.roles
   }
 }
