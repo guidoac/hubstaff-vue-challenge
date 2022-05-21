@@ -45,7 +45,9 @@
       </div>
     </div>
 
-    <MembersTable />
+    <div class="row mt-5">
+      <MembersTable />
+    </div>
   </div>
 </template>
 
@@ -87,7 +89,6 @@ export default {
 
   computed: {
     ...mapGetters('members', [
-      'members',
       'membersCount'
     ])
   },

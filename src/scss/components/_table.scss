@@ -1,0 +1,18 @@
+.table {
+    .column-selected {
+        width: 3rem;
+    }
+
+    tr {
+        td {
+            vertical-align: middle;
+            font-size: .9rem;
+        }
+
+        &:hover {
+            td {
+                background: #f0f2f5;
+            }
+        }
+    }
+}
