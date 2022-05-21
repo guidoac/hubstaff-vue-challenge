@@ -65,6 +65,7 @@ label {
     border-radius: .5rem;
     background: white;
     padding: .5rem 1.75rem 0.5rem 1rem;
+    font-size: 1rem;
   }
 
   .icon {
