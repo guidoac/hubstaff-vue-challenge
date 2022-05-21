@@ -10,13 +10,16 @@
       content-class="mt-3"
       active-nav-item-class="bg-transparent border-primary pb-1"
     >
-      <b-tab :title="`MEMBERS (${membersCount})`">
+      <b-tab
+        active
+        :title="`MEMBERS (${membersCount})`"
+      >
         <MembersTab />
       </b-tab>
 
       <b-tab
-        title="INVITES"
         disabled
+        title="INVITES"
       >
         <!-- <InvitesTab /> goes here -->
       </b-tab>
