@@ -19,21 +19,33 @@
       </div>
     </div>
 
-    <div class="row">
-      <BaseSelect
-        class="col-3 pl-0"
-        label="Role"
-        v-bind="roles"
-        @input="roleHandler"
-      />
+    <div class="row justify-content-between">
+      <div class="col-6">
+        <div class="row">
+          <BaseSelect
+            class="col-6 pl-0"
+            label="Role"
+            v-bind="roles"
+            @input="roleHandler"
+          />
 
-      <BaseSelect
-        class="col-3 pl-0"
-        label="Time Tracking"
-        v-bind="timeTracking"
-        @input="timeTrackingHandler"
-      />
+          <BaseSelect
+            class="col-6 pl-0"
+            label="Time Tracking"
+            v-bind="timeTracking"
+            @input="timeTrackingHandler"
+          />
+        </div>
+      </div>
+
+      <div class="col-3 d-flex align-items-end justify-content-end">
+        <BaseButton>
+          Invite Member
+        </BaseButton>
+      </div>
     </div>
+
+    <MembersTable />
   </div>
 </template>
 
@@ -41,12 +53,16 @@
 import { mapGetters, mapActions } from 'vuex'
 
 import BaseSelect from '@/components/Base/BaseSelect'
+import BaseButton from '@/components/Base/BaseButton'
+import MembersTable from '@/components/Members/MembersTable'
 
 export default {
   name: 'MembersTab',
 
   components: {
-    BaseSelect
+    BaseSelect,
+    BaseButton,
+    MembersTable
   },
 
   data () {
