@@ -1,21 +1,27 @@
 <template>
   <div class="col">
     <div class="row mb-3">
-      <p class="text-muted h6">
-        {{ `1 of ${membersCount} counts towards your pricing plan` }}
+      <div class="text-muted h6">
+        <span>
+          {{ `1 of ${membersCount} counts towards your pricing plan` }}
+        </span>
 
-        <b-button
+        <div
           v-b-tooltip.hover
+          class="ml-1 d-inline-block"
           title="Viewers don't count towards yout Team of 10 (Premium) plan"
-          class="rounded-circle text-white info-tooltip-buttom border-0 ml-1"
         >
-          i
-        </b-button>
-      </p>
+          <b-icon
+            icon="exclamation-circle-fill"
+            variant="secondary"
+          />
+        </div>
+      </div>
     </div>
 
     <div class="row">
       <BaseSelect
+        class="col-3 pl-0"
         label="Role"
         pre-selected="all"
         :options="roles"
@@ -39,15 +45,28 @@ export default {
 
   data () {
     return {
-      roleSelected: 'all'
+      roles: {
+        selected: 'all',
+        options: [
+          { value: 'all', text: 'All Roles' },
+          { value: 'owner', text: 'Owner' },
+          { value: 'viewer', text: 'Viewer' }
+        ]
+      },
+      timeTracking: {
+        selected: 'enabled',
+        options: [
+          { value: 'enabled', text: 'Enabled' },
+          { value: 'disabled', text: 'Disabled' }
+        ]
+      }
     }
   },
 
   computed: {
     ...mapGetters('members', [
       'members',
-      'membersCount',
-      'roles'
+      'membersCount'
     ])
   },
 
@@ -68,11 +87,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.info-tooltip-buttom {
-  padding: 0px 6px;
-  font-size: .7rem;
-  background-color: #8e9eb3;
-}
 
 </style>
