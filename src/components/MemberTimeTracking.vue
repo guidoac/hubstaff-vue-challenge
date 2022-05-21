@@ -1,11 +1,12 @@
 <template>
     <span
-        class="p-2 rounded-"
+        class="px-3 py-1 time-tracking-badge text-light font-weight-bold"
         :class="{
-            'bg-success': timeTracking === 'enabled'
+            'bg-success': timeTracking === 'enabled',
+            'bg-danger': timeTracking === 'disabled',
         }"
     >
-        {{ timeTracking }}
+        {{ timeTracking | capitalize }}
     </span>
 </template>
 
@@ -23,5 +24,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.time-tracking-badge {
+  border-radius: 7px;
+}
 </style>
