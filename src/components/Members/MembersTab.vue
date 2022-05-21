@@ -23,8 +23,7 @@
       <BaseSelect
         class="col-3 pl-0"
         label="Role"
-        pre-selected="all"
-        :options="roles"
+        v-bind="roles"
         @input="roleHandler"
       />
     </div>
