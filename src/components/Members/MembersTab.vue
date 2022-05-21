@@ -26,6 +26,13 @@
         v-bind="roles"
         @input="roleHandler"
       />
+
+      <BaseSelect
+        class="col-3 pl-0"
+        label="Time Tracking"
+        v-bind="timeTracking"
+        @input="timeTrackingHandler"
+      />
     </div>
   </div>
 </template>
@@ -75,7 +82,11 @@ export default {
     ]),
 
     roleHandler (value) {
-      this.roleSelected = value
+      this.roles.selected = value
+    },
+
+    timeTrackingHandler (value) {
+      this.timeTracking.selected = value
     }
   },
 
