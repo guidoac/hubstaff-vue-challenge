@@ -1,0 +1,16 @@
+.input-container {
+  .custom-select {
+    border-radius: .5rem;
+    background: white;
+
+    &-md {
+      height: auto;
+      padding: .5rem 2rem 0.5rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .icon {
+    right: 1rem;
+  }
+}
