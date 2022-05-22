@@ -46,7 +46,7 @@
     </div>
 
     <div class="row mt-5">
-      <MembersTable />
+      <MembersTable :custom-filter="customFilter" />
     </div>
   </div>
 </template>
@@ -90,7 +90,14 @@ export default {
   computed: {
     ...mapGetters('members', [
       'membersCount'
-    ])
+    ]),
+
+    customFilter () {
+      return [
+        { key: 'role', value: this.roles.selected },
+        { key: 'time_tracking', value: this.timeTracking.selected }
+      ]
+    }
   },
 
   methods: {

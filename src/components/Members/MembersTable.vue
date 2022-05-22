@@ -3,8 +3,11 @@
       <b-table
         ref="selectableTable"
         v-bind="tableConfig"
+        :busy="isBusy"
         :fields="fields"
         :items="members"
+        :filter="filterValue"
+        :filter-function="filterTable"
         @row-hovered="toggleRowHover"
       >
         <template #head(selected)>
@@ -72,6 +75,10 @@
           </div>
         </template>
       </b-table>
+
+      <p class="h6 text-muted">
+        {{ `Showing ${currentItemsCount} of ${totalItemsCount} members` }}
+      </p>
     </div>
 </template>
 
@@ -93,6 +100,14 @@ export default {
     MemberPayment,
     EditButton,
     BaseSelect
+  },
+
+  props: {
+    customFilter: {
+      type: Array,
+      required: false,
+      default: () => []
+    }
   },
 
   data () {
@@ -136,6 +151,30 @@ export default {
       } else {
         return false
       }
+    },
+
+    filterValue () {
+      return this.customFilter.map(filter => filter.value)
+    },
+
+    currentItemsCount () {
+      if (!this.isBusy) {
+        return this.$refs.selectableTable?.filteredItems.length
+      } else {
+        return ''
+      }
+    },
+
+    totalItemsCount () {
+      if (!this.isBusy) {
+        return this.$refs.selectableTable?.items.length
+      } else {
+        return ''
+      }
+    },
+
+    isBusy () {
+      return this.members.length === 0
     }
   },
 
@@ -146,11 +185,23 @@ export default {
     },
 
     selectAll (value) {
+      console.log(this.$refs)
       value ? this.$refs.selectableTable.selectAllRows() : this.$refs.selectableTable.clearSelected()
     },
 
     toggleRowHover (item, index) {
       this.itemHovered = index + 1
+    },
+
+    filterTable (row, filter) {
+      let result = true
+      this.customFilter.forEach(filter => {
+        if (filter.value !== 'all' && row[filter.key].toLowerCase() !== filter.value) {
+          result = false
+        }
+      })
+
+      return result
     }
   }
 }
