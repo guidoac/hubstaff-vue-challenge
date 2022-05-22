@@ -180,12 +180,10 @@ export default {
 
   methods: {
     select (value) {
-      console.log(value)
       this.$refs.selectableTable.selectRow(value.index)
     },
 
     selectAll (value) {
-      console.log(this.$refs)
       value ? this.$refs.selectableTable.selectAllRows() : this.$refs.selectableTable.clearSelected()
     },
 
