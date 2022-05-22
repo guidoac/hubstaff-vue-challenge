@@ -34,6 +34,10 @@
           <MemberTimeTracking :time-tracking="time_tracking.value" />
         </template>
 
+        <template #cell(actions)>
+          <BaseSelect :options="actions" />
+        </template>
+
         <template #cell()="data">
           {{ data.value }}
         </template>
@@ -47,6 +51,7 @@ import { mapGetters } from 'vuex'
 import MemberTimeTracking from '@/components/MemberTimeTracking'
 import MemberLimits from '@/components/MemberLimits'
 import MemberPayment from '@/components/MemberPayment'
+import BaseSelect from '@/components/Base/BaseSelect'
 
 export default {
   name: 'MembersTable',
@@ -54,7 +59,8 @@ export default {
   components: {
     MemberTimeTracking,
     MemberLimits,
-    MemberPayment
+    MemberPayment,
+    BaseSelect
   },
 
   data () {
@@ -62,21 +68,26 @@ export default {
       fields: [
         { key: 'selected', label: '', class: 'column-selected' },
         { key: 'name', label: 'Member' },
-        'role',
-        'projects',
+        { key: 'role', label: 'Role', class: 'column-role' },
+        { key: 'projects', label: 'Projects', class: 'column-projects' },
         'payment',
         'limits',
-        'time_tracking'
+        'time_tracking',
+        { key: 'actions', label: '' }
       ],
 
       tableConfig: {
-        selectedVariant: true,
+        selectedVariant: '',
         selectable: true,
         selectMode: 'multi',
         borderless: true,
         hover: true,
         fixed: true
-      }
+      },
+
+      actions: [
+        { value: null, text: 'Actions' }
+      ]
     }
   },
 

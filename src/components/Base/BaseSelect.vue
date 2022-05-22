@@ -1,8 +1,9 @@
 <template>
     <div>
         <label
-          class="text-uppercase text-muted font-weight-bold"
+          v-if="label"
           for="base-select"
+          class="text-uppercase text-muted font-weight-bold"
         >
             {{ label }}
         </label>
@@ -43,7 +44,7 @@ export default {
     selected: {
       type: String,
       required: false,
-      default: ''
+      default: null
     }
   },
 

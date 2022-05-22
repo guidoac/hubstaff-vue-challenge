@@ -18,7 +18,7 @@ export default {
 
   props: {
     payment: {
-      type: Number,
+      type: String,
       required: false,
       default: null
     }
