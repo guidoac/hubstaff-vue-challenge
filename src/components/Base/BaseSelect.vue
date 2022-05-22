@@ -11,8 +11,11 @@
         <div class="position-relative input-container d-flex align-items-center">
           <b-form-select
             v-model="selected"
+            :size="size"
             class="base-select"
-            size="lg"
+            :class="{
+              'text-center': centralized
+            }"
             :options="options"
             @input="inputHandler"
           />
@@ -45,6 +48,18 @@ export default {
       type: String,
       required: false,
       default: null
+    },
+
+    centralized: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+
+    size: {
+      type: String,
+      required: false,
+      default: 'md'
     }
   },
 
@@ -59,18 +74,5 @@ export default {
 <style lang="scss" scoped>
 label {
   font-size: .9rem;
-}
-
-.input-container {
-  .base-select {
-    border-radius: .5rem;
-    background: white;
-    padding: .5rem 1.75rem 0.5rem 1rem;
-    font-size: 1rem;
-  }
-
-  .icon {
-    right: 1rem;
-  }
 }
 </style>

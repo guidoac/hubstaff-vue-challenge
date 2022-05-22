@@ -35,7 +35,11 @@
         </template>
 
         <template #cell(actions)>
-          <BaseSelect :options="actions" />
+          <BaseSelect
+            centralized
+            size="sm"
+            :options="actions"
+          />
         </template>
 
         <template #cell()="data">
@@ -73,7 +77,7 @@ export default {
         'payment',
         'limits',
         'time_tracking',
-        { key: 'actions', label: '' }
+        { key: 'actions', label: '', class: 'column-actions' }
       ],
 
       tableConfig: {
