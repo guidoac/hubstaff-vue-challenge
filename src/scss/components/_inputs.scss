@@ -14,3 +14,7 @@
     right: 1rem;
   }
 }
+
+textarea:focus, input:focus{
+  outline: none;
+}

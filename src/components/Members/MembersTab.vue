@@ -1,5 +1,5 @@
 <template>
-  <div class="col">
+  <div class="col position-relative">
     <div class="row mb-3">
       <div class="text-muted h6">
         <span>
@@ -48,6 +48,16 @@
     <div class="row mt-5">
       <MembersTable :custom-filter="customFilter" />
     </div>
+
+    <BaseInput
+      class="search-input position-absolute"
+      placeholder="Search Members"
+      v-model="search"
+    >
+        <template #left-icon>
+            <b-icon-search variant="muted" />
+        </template>
+    </BaseInput>
   </div>
 </template>
 
@@ -57,6 +67,7 @@ import { mapGetters, mapActions } from 'vuex'
 import BaseSelect from '@/components/Base/BaseSelect'
 import BaseButton from '@/components/Base/BaseButton'
 import MembersTable from '@/components/Members/MembersTable'
+import BaseInput from '@/components/Base/BaseInput'
 
 export default {
   name: 'MembersTab',
@@ -64,11 +75,13 @@ export default {
   components: {
     BaseSelect,
     BaseButton,
-    MembersTable
+    MembersTable,
+    BaseInput
   },
 
   data () {
     return {
+      search: '',
       roles: {
         selected: 'all',
         options: [
@@ -121,5 +134,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.search-input {
+  right: 0;
+  top: -3rem;
+}
 </style>
