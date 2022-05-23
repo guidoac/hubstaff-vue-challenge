@@ -91,8 +91,9 @@ export default {
         ]
       },
       timeTracking: {
-        selected: 'enabled',
+        selected: 'all',
         options: [
+          { value: 'all', text: 'All Time Tracking' },
           { value: 'enabled', text: 'Enabled' },
           { value: 'disabled', text: 'Disabled' }
         ]
