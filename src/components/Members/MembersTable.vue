@@ -194,11 +194,15 @@ export default {
     filterTable (row, filter) {
       let result = true
       this.customFilter.forEach(filter => {
-        if (filter.value !== 'all' && row[filter.key].toLowerCase() !== filter.value) {
+        if (
+          filter.value !== 'all' &&
+          filter.key !== 'name' &&
+          row[filter.key].toLowerCase() !== filter.value
+        ) {
           result = false
         }
 
-        if (filter.key === 'name') {
+        if (filter.key === 'name' && filter.value !== '') {
           result = new RegExp(filter.value, 'i').test(row.name)
         }
       })

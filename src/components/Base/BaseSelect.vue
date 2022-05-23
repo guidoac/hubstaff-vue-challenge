@@ -10,7 +10,7 @@
 
         <div class="position-relative input-container d-flex align-items-center">
           <b-form-select
-            v-model="selected"
+            :value="selected"
             :size="size"
             class="base-select"
             :class="{
