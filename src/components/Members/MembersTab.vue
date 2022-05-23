@@ -108,7 +108,8 @@ export default {
     customFilter () {
       return [
         { key: 'role', value: this.roles.selected },
-        { key: 'time_tracking', value: this.timeTracking.selected }
+        { key: 'time_tracking', value: this.timeTracking.selected },
+        { key: 'name', value: this.search }
       ]
     }
   },

@@ -197,6 +197,10 @@ export default {
         if (filter.value !== 'all' && row[filter.key].toLowerCase() !== filter.value) {
           result = false
         }
+
+        if (filter.key === 'name') {
+          result = new RegExp(filter.value, 'i').test(row.name)
+        }
       })
 
       return result
