@@ -20,8 +20,8 @@
 
         <template #cell(selected)="selectedRow">
           <b-form-checkbox
-            @change="select"
             v-model="selectedRow.rowSelected"
+            @change="select"
             @click.native.stop
           />
         </template>

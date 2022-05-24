@@ -23,16 +23,16 @@
       <div class="col-6">
         <div class="row">
           <BaseSelect
+            v-bind="roles"
             class="col-6 pl-0"
             label="Role"
-            v-bind="roles"
             @input="roleHandler"
           />
 
           <BaseSelect
+            v-bind="timeTracking"
             class="col-6 pl-0"
             label="Time Tracking"
-            v-bind="timeTracking"
             @input="timeTrackingHandler"
           />
         </div>
@@ -46,9 +46,9 @@
     </div>
 
     <BaseInput
+      v-model="search"
       class="search-input position-absolute"
       placeholder="Search Members"
-      v-model="search"
     >
         <template #left-icon>
             <b-icon-search variant="muted" />

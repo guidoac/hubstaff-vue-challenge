@@ -1,19 +1,19 @@
 <template>
     <div>
       <p
+        class="mb-0 weekly-limit"
         :class="{
           'text-muted': !limits.weekly
         }"
-        class="mb-0 weekly-limit"
       >
         {{ weeklyMessage }}
       </p>
 
       <p
+        class="mb-0 daily-limit"
         :class="{
           'text-muted': !limits.daily
         }"
-        class="mb-0 daily-limit"
       >
         {{ dailyMessage }}
       </p>
