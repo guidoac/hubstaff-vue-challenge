@@ -195,22 +195,17 @@ export default {
     },
 
     filterFunction (row, filter) {
-      let result = true
-      this.customFilter.forEach(filter => {
-        if (
-          filter.value !== 'all' &&
-          filter.key !== 'name' &&
-          row[filter.key].toLowerCase() !== filter.value
-        ) {
-          result = false
-        }
+      const results = []
 
-        if (filter.key === 'name' && filter.value !== '') {
-          result = result && new RegExp(filter.value, 'i').test(row.name)
+      this.customFilter.forEach(filter => {
+        if (filter.value === 'all') {
+          results.push({ key: filter.key, value: true })
+        } else {
+          results.push({ key: filter.key, value: new RegExp(filter.value, 'i').test(row[filter.key]) })
         }
       })
 
-      return result
+      return results.every(res => res.value)
     }
   }
 }
