@@ -203,7 +203,7 @@ export default {
         }
 
         if (filter.key === 'name' && filter.value !== '') {
-          result = new RegExp(filter.value, 'i').test(row.name)
+          result = result && new RegExp(filter.value, 'i').test(row.name)
         }
       })
 
