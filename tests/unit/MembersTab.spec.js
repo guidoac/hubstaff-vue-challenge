@@ -6,7 +6,7 @@ import { BTable } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
-localVue.filter('capitalize', () => {})
+localVue.filter('capitalize', jest.fn())
 
 const members = [
   { id: '1', name: 'Jared Brown', role: 'Owner', projects: 8, payment: null, limits: { weekly: null, daily: 8 }, time_tracking: 'enabled' },
@@ -130,7 +130,7 @@ describe('MembersTab', () => {
   })
 
   it('renders the right number of rows when using the TIME TRACKING and ROLE filter', () => {
-    const resultExpected = [members[3]]
+    const resultExpected = []
 
     const wrapper = factory({
       computed: {
@@ -139,6 +139,25 @@ describe('MembersTab', () => {
             { key: 'role', value: 'owner' },
             { key: 'time_tracking', value: 'disabled' },
             { key: 'name', value: '' }
+          ]
+        }
+      }
+    })
+
+    expect(wrapper.findComponent({ name: 'BTable' }).vm.filteredItems)
+      .toStrictEqual(resultExpected)
+  })
+
+  it('renders the right number of rows when using the NAME filter with TIME TRACKING or ROLE filter', () => {
+    const resultExpected = [members[2]]
+
+    const wrapper = factory({
+      computed: {
+        customFilter: () => {
+          return [
+            { key: 'role', value: 'viewer' },
+            { key: 'time_tracking', value: 'enabled' },
+            { key: 'name', value: 'ro' }
           ]
         }
       }
