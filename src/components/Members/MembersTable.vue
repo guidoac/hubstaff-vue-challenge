@@ -57,10 +57,6 @@
         <template #cell(time_tracking)="timeTrackingRow">
           <div class="table-data">
             <MemberTimeTracking :time-tracking="timeTrackingRow.value" />
-
-            <template v-if="timeTrackingRow.item.id == itemHovered">
-              <EditButton class="icon ml-3" />
-            </template>
           </div>
         </template>
 
