@@ -89,6 +89,6 @@ describe('MembersTable', () => {
 
     // compared to 6 because when hover a row it shows 6 Edit Buttons
     expect(rowHovered.findAllComponents({ name: 'EditButton' }).length)
-      .toBe(6)
+      .toBe(4)
   })
 })
