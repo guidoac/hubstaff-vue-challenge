@@ -18,10 +18,10 @@
           />
         </template>
 
-        <template #cell(selected)="row">
+        <template #cell(selected)="selectedRow">
           <b-form-checkbox
             @change="select"
-            v-model="row.rowSelected"
+            v-model="selectedRow.rowSelected"
             @click.native.stop
           />
         </template>
@@ -37,21 +37,21 @@
 
         </template>
 
-        <template #cell(limits)="limits">
+        <template #cell(limits)="limitsRow">
           <div class="table-data d-flex align-items-center">
-            <MemberLimits :limits="limits.value" />
+            <MemberLimits :limits="limitsRow.value" />
 
-            <template v-if="limits.item.id == itemHovered">
+            <template v-if="limitsRow.item.id == itemHovered">
               <EditButton class="icon ml-3" />
             </template>
           </div>
         </template>
 
-        <template #cell(time_tracking)="time_tracking">
+        <template #cell(time_tracking)="timeTrackingRow">
           <div class="table-data">
-            <MemberTimeTracking :time-tracking="time_tracking.value" />
+            <MemberTimeTracking :time-tracking="timeTrackingRow.value" />
 
-            <template v-if="time_tracking.item.id == itemHovered">
+            <template v-if="timeTrackingRow.item.id == itemHovered">
               <EditButton class="icon ml-3" />
             </template>
           </div>
