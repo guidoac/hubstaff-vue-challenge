@@ -76,7 +76,7 @@
         </template>
       </b-table>
 
-      <p class="text-muted">
+      <p class="text-muted subtitle">
         {{ `Showing ${currentItemsCount} of ${totalItemsCount} members` }}
       </p>
     </div>
