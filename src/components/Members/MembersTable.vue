@@ -26,6 +26,13 @@
           />
         </template>
 
+        <template #cell(name)="nameRow">
+          <div class="d-flex align-items-center">
+            <div class="bg-success photo-placeholder rounded-circle mr-2" />
+            {{ nameRow.value }}
+          </div>
+        </template>
+
         <template #cell(payment)="paymentRow">
           <div class="table-data d-flex align-items-center">
             <MemberPayment :payment="paymentRow.value" />
@@ -226,5 +233,9 @@ export default {
       color: var(--primary);
     }
   }
+}
+
+.photo-placeholder {
+  padding: .75rem;
 }
 </style>
