@@ -64,4 +64,31 @@ describe('MembersTable', () => {
     expect(wrapper.find('.subtitle').text())
       .toBe('Showing 3 of 3 members')
   })
+
+  it('renders the edit buttons on the row hovered', () => {
+    const itemHovered = 1
+    const members = [
+      { id: '1', name: 'Jared Brown', role: 'Owner', projects: 8, payment: null, limits: { weekly: null, daily: 8 }, time_tracking: 'enabled' },
+      { id: '2', name: 'Adrian Goia', role: 'Viewer', projects: 5, payment: null, limits: { weekly: 50, daily: 8 }, time_tracking: 'enabled' },
+      { id: '3', name: 'Cody Rogers', role: 'Viewer', projects: 8, payment: null, limits: { weekly: 40, daily: null }, time_tracking: 'enabled' }
+    ]
+
+    const wrapper = factory({
+      data () {
+        return {
+          itemHovered
+        }
+      },
+
+      computed: {
+        members: () => members
+      }
+    })
+
+    const rowHovered = wrapper.findAllComponents({ name: 'BTr' }).at(itemHovered)
+
+    // compared to 6 because when hover a row it shows 6 Edit Buttons
+    expect(rowHovered.findAllComponents({ name: 'EditButton' }).length)
+      .toBe(6)
+  })
 })
