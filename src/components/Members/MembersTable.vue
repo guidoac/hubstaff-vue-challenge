@@ -7,7 +7,7 @@
         :fields="fields"
         :items="members"
         :filter="filterValue"
-        :filter-function="filterTable"
+        :filter-function="filterFunction"
         @row-hovered="toggleRowHover"
       >
         <template #head(selected)>
@@ -194,7 +194,7 @@ export default {
       this.itemHovered = index + 1
     },
 
-    filterTable (row, filter) {
+    filterFunction (row, filter) {
       let result = true
       this.customFilter.forEach(filter => {
         if (
