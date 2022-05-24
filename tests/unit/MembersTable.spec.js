@@ -87,7 +87,7 @@ describe('MembersTable', () => {
 
     const rowHovered = wrapper.findAllComponents({ name: 'BTr' }).at(itemHovered)
 
-    // compared to 4 because when hover a row it shows 6 Edit Buttons
+    // compared to 4 because when hover a row it shows 4 Edit Buttons
     expect(rowHovered.findAllComponents({ name: 'EditButton' }).length)
       .toBe(4)
   })
