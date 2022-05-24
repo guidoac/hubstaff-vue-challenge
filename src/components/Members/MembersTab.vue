@@ -45,10 +45,6 @@
       </div>
     </div>
 
-    <div class="row mt-5">
-      <MembersTable :custom-filter="customFilter" />
-    </div>
-
     <BaseInput
       class="search-input position-absolute"
       placeholder="Search Members"
@@ -58,6 +54,10 @@
             <b-icon-search variant="muted" />
         </template>
     </BaseInput>
+
+    <div class="row mt-5">
+      <MembersTable :custom-filter="customFilter" />
+    </div>
   </div>
 </template>
 
