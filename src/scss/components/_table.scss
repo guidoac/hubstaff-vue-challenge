@@ -1,0 +1,34 @@
+.table {
+    .column-selected {
+        width: 3rem;
+    }
+
+    .column-role {
+        width: 8rem;
+    }
+
+    .column-projects {
+        width: 8rem;
+    }
+
+    .column-payment {
+        width: 14rem;
+    }
+
+    .column-actions {
+        width: 10rem;
+    }
+
+    tr {
+        td {
+            vertical-align: middle;
+            font-size: .9rem;
+        }
+
+        &:hover {
+            td {
+                background: #f0f2f5;
+            }
+        }
+    }
+}
